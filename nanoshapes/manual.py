@@ -77,9 +77,19 @@ Options that do not apply to the current shape are greyed out (for example edge 
 
 ## 7. Settings that are remembered
 
-The shape, every shape's parameters, the view, colours, display options, the export size, the last folder and the window size are saved when you close the app. File › Open Settings Folder shows where. File › Reset Everything restores all defaults; the tetrahedron's defaults reproduce the original reference figure.
+The shape, every shape's parameters, the view, colours, display options, the export size, the last folder and the window size are saved when you close the app. Tools › Open Settings Folder shows where. File › Reset Everything restores all defaults; the tetrahedron's defaults reproduce the original reference figure.
 
-## 8. About and acknowledgment
+## 8. Desktop shortcut
+
+Tools › Create Desktop Shortcut puts a Nanocrystal Shapes icon on your desktop, so you no longer need the launcher file:
+
+- Windows: a shortcut on the desktop and in the Start menu, with the app's own icon. To keep it in the taskbar, right-click the Start menu entry › Pin to taskbar (or pin the running app).
+- macOS: a small "Nanocrystal Shapes.app" on the desktop. It is made on your own Mac, so macOS does not block it. Drag it to the Dock to keep it there.
+- Linux: an icon on the desktop and an entry in your applications menu.
+
+The shortcut points at the app folder. If you move or rename the folder, start the app once from its new place and create the shortcut again; the new one replaces the old.
+
+## 9. About and acknowledgment
 
 Nanocrystal Shapes is developed by moinulshdu (moinulshdu@gmail.com). It is free for anyone to use, share and build upon. If it helps your work, a kind acknowledgment of the developer would be warmly appreciated. Help › About Nanocrystal Shapes has a button that copies a ready-made acknowledgment line. Questions, ideas and feedback are always welcome by email.
 """),
@@ -94,6 +104,8 @@ Nanocrystal Shapes is developed by moinulshdu (moinulshdu@gmail.com). It is free
 - Linux: double-click "start_nanocrystal_shapes.sh" or run it from a terminal.
 
 On the first start, if Pillow is missing, a window asks for permission to install it. Nothing is installed without your OK.
+
+Then choose Tools › Create Desktop Shortcut once. From then on you can start the app from its desktop icon (and on Windows from the Start menu).
 
 ## Make a figure in four steps
 
@@ -138,9 +150,10 @@ Nanocrystal Shapes is a Python 3 application of about 2,800 lines. It began as a
             geometry.py      the shapes
             renderer.py      camera, lighting, drawing; shape list and parameters
             app.py           the main window, menus, saving
+            shortcuts.py     Tools › Create Desktop Shortcut for each system
             help_window.py   this manual and the Python Packages window
             manual.py        the manual text
-            icon.png / icon.ico
+            icon.png / .ico / .icns
         tools/                                    rebuild the icon and README pictures
         docs/                                     README pictures and screenshots
 
@@ -239,9 +252,16 @@ The arrow, plus and minus keys work when the picture or a button has the focus, 
 - The saved PNG has a white background: tick Transparent background before saving. JPEG, BMP and PDF cannot be transparent.
 - Strange settings after experimenting: File › Reset Shape Parameters, or File › Reset Everything.
 
+## Desktop shortcut
+
+- The shortcut stopped working: the app folder was moved, renamed or deleted after the shortcut was made. Start the app from the launcher in the folder's new place, then choose Tools › Create Desktop Shortcut again.
+- Windows: "The shortcut could not be created". Company computers sometimes block PowerShell, which the app uses to make shortcuts. Make one by hand: right-click "Start Nanocrystal Shapes (Windows).bat" › Send to › Desktop (create shortcut).
+- Linux: the desktop icon says "Untrusted application launcher" or shows a gear: right-click it › Allow Launching.
+- macOS: the new desktop app shows a plain icon for a moment. Finder updates it after a few seconds, or after you log out and in again.
+
 ## Windows taskbar shows another app's icon
 
-The app sets its own taskbar identity and icon. If an older pinned shortcut still groups it with another Python app, unpin that shortcut and start Nanocrystal Shapes again.
+The app sets its own taskbar identity and icon. If an older pinned shortcut still groups it with another Python app, unpin that shortcut, start Nanocrystal Shapes, choose Tools › Create Desktop Shortcut and pin the new Start menu entry.
 
 ## Still stuck?
 
@@ -288,14 +308,16 @@ Nanocrystal Shapes works completely offline. It collects nothing, sends nothing,
 ## What it reads and writes on your computer
 
 - Reads: its own files (code and icon) and its settings file.
+- Writes: a desktop shortcut (and a Start menu or applications-menu entry), only when you choose Tools › Create Desktop Shortcut.
 - Writes: its settings file (shape, parameters, view, colours, window size, last folder and export size) when you close the app; pictures only where you choose to save them; the manual only where you choose to export it.
-- The settings file is in: Windows %APPDATA%\\NanocrystalShapes, macOS ~/Library/Application Support/NanocrystalShapes, Linux ~/.config/NanocrystalShapes. File › Open Settings Folder shows it.
+- The settings file is in: Windows %APPDATA%\\NanocrystalShapes, macOS ~/Library/Application Support/NanocrystalShapes, Linux ~/.config/NanocrystalShapes. Tools › Open Settings Folder shows it.
 - It never reads your other files, never deletes any file and never needs administrator rights.
 
 ## Other programs it starts
 
 - pip, to install packages (only after you agree).
-- Your file manager, only when you choose File › Open Settings Folder.
+- Your file manager, only when you choose Tools › Open Settings Folder.
+- On Windows, PowerShell, only when you choose Tools › Create Desktop Shortcut. It writes the shortcut files and nothing else.
 - Your email program, only when you click the email address in the About window.
 - On Windows it tells the taskbar the app's own identity, so it gets its own button and icon. This changes nothing else.
 

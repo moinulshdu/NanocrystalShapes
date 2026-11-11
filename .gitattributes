@@ -1,2 +1,13 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Keep line endings right for each launcher, whatever system the repository is cloned on
+*.bat      text eol=crlf
+*.command  text eol=lf
+*.sh       text eol=lf
+*.py       text eol=lf
+*.pyw      text eol=lf
+*.md       text eol=lf
+*.txt      text eol=lf
+
+# Binary files
+*.png  binary
+*.ico  binary
+*.jpg  binary

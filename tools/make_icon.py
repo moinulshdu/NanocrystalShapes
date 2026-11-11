@@ -46,4 +46,5 @@ tile.alpha_composite(crystal, ((N - crystal.width) // 2, (N - crystal.height) //
 
 tile.resize((512, 512), Image.LANCZOS).save(os.path.join(OUT, "icon.png"))
 tile.save(os.path.join(OUT, "icon.ico"), sizes=[(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])
+tile.save(os.path.join(OUT, "icon.icns"))     # macOS app icon (desktop shortcut)
 print("icon written")

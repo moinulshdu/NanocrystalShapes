@@ -13,6 +13,9 @@
 - **Help › Python Packages**: shows the Python in use, which packages are installed and
   their versions, and installs missing ones after asking.
 - **Privacy & Safety**: checked by code review and a live network-trace test; summarised in About.
+- **Tools › Create Desktop Shortcut**: a desktop icon on Windows (plus a Start menu entry that can
+  be pinned to the taskbar), macOS (a small app you can drag to the Dock) and Linux (plus an
+  applications-menu entry). **Open Settings Folder** moved to the Tools menu.
 - New keyboard shortcuts: arrow keys rotate, + / − zoom, Ctrl+R default view, Page Up / Down
   change shape, Ctrl+T transparent background, Ctrl+Shift+S save transparent PNG.
 - Repository files: README, license, changelog, requirements, gallery pictures.

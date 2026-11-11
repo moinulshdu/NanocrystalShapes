@@ -112,14 +112,16 @@ class App:
         fm.add_command(label="Reset Shape Parameters", command=self.reset_params)
         fm.add_command(label="Reset Everything", command=self.reset_all)
         fm.add_separator()
-        fm.add_command(label="Open Settings Folder", command=self.open_settings_folder)
-        fm.add_separator()
         fm.add_command(label="Quit", accelerator=acc + "+Q", command=self.on_close)
         mb.add_cascade(label="File", menu=fm)
         sm = tk.Menu(mb, tearoff=0)
         for key, spec in R.SHAPES.items():
             sm.add_command(label=spec["label"], command=lambda k=key: self.change_shape(k))
         mb.add_cascade(label="Shape", menu=sm)
+        tm = tk.Menu(mb, tearoff=0)
+        tm.add_command(label="Create Desktop Shortcut", command=self.create_shortcut)
+        tm.add_command(label="Open Settings Folder", command=self.open_settings_folder)
+        mb.add_cascade(label="Tools", menu=tm)
         hm = tk.Menu(mb, tearoff=0)
         from .manual import PAGES
         for i, (title, _) in enumerate(PAGES):
@@ -553,6 +555,24 @@ class App:
         finally:
             self.root.config(cursor="")
         self.save_config()
+
+    def create_shortcut(self):
+        from . import shortcuts
+        self.root.config(cursor="watch")
+        self.root.update_idletasks()
+        try:
+            where = shortcuts.create_shortcut()
+        except Exception as exc:
+            messagebox.showerror(
+                "Desktop shortcut", "The shortcut could not be created:\n\n%s\n\n"
+                "See Help \u203a Troubleshooting for how to make one by hand." % exc, parent=self.root)
+            return
+        finally:
+            self.root.config(cursor="")
+        messagebox.showinfo(
+            "Desktop shortcut", "Shortcut created:\n%s\n\nDouble-click it to start %s.\n\n"
+            "If you move or rename the app folder later, start the app from its new place and "
+            "choose Tools \u203a Create Desktop Shortcut again." % (where, APP_NAME), parent=self.root)
 
     def open_settings_folder(self):
         d = config_dir()

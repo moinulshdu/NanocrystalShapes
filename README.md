@@ -119,6 +119,14 @@ NumPy is optional; it only makes saving with a transparent background faster.
 
 You can also run `python "Nanocrystal Shapes.pyw"` from a terminal on any system.
 
+**Desktop shortcut:** once the app is open, choose **Tools › Create Desktop Shortcut**. This puts a
+Nanocrystal Shapes icon on your desktop, so you no longer need the launcher file:
+- Windows: also adds a Start menu entry. Right-click it › **Pin to taskbar** to keep it there.
+- macOS: makes a small **Nanocrystal Shapes.app** on the desktop. You can drag it to the Dock.
+- Linux: also adds the app to your applications menu.
+
+If you move the app folder later, start it once from the new place and create the shortcut again.
+
 **macOS, first start only:** apps that are not signed by Apple are blocked at first
 ("Apple could not verify…"). Click **Done**, open **System Settings › Privacy & Security**,
 and click **Open Anyway**. Alternatively, run this once in Terminal, dragging the folder in
@@ -181,8 +189,8 @@ xattr -dr com.apple.quarantine <folder>
 Nanocrystal Shapes works **completely offline**. There is no tracking, analytics, account or
 update check, and nothing is collected, sent, shared or sold. The internet is used only to
 install missing Python packages from the official Python Package Index, and only after you agree.
-The app reads only its own files and its settings file, and writes only its settings and the
-pictures you save. It never deletes files and never needs administrator rights.
+The app reads only its own files and its settings file. It writes only its settings, the
+pictures you save and, when you ask for one, a desktop shortcut. It never deletes files and never needs administrator rights.
 
 This was checked by reviewing all of the code, and by running the whole app while the operating
 system recorded every network connection attempt. There were none. **Help › Privacy & Safety**
@@ -202,8 +210,9 @@ NanocrystalShapes/
 │   ├── renderer.py     camera, lighting, drawing; shape list and parameter ranges
 │   ├── app.py          the window (Tkinter)
 │   ├── help_window.py  the Help window and the Python Packages window
+│   ├── shortcuts.py    Tools › Create Desktop Shortcut (Windows, macOS, Linux)
 │   ├── manual.py       the text of the manual
-│   └── icon.png/.ico   app icon
+│   └── icon.png/.ico/.icns  app icon
 ├── tools/
 │   ├── make_icon.py        rebuilds the icon
 │   └── render_gallery.py   rebuilds the pictures in docs/images
