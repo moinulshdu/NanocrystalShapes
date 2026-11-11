@@ -1,5 +1,5 @@
 """Nanocrystal Shapes - translucent 3D figures of common nanocrystal shapes."""
-__version__ = "2.1"
+__version__ = "2.2"
 __date__ = "November 2026"
 __author__ = "moinulshdu"
 __email__ = "moinulshdu@gmail.com"

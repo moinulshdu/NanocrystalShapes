@@ -36,10 +36,17 @@ git push -u origin main
    it "Nanocrystal Shapes 2.1", paste the changelog section, attach `NanocrystalShapes.zip`
    and click **Publish release**.
 
-## Later versions
+## Later versions (Finder and GitHub Desktop, no Terminal)
 
-Copy the new files into the existing repository folder, replacing the old ones. Do not delete
-the folder: its hidden `.git` folder holds the history. Then commit, push, and make a new release.
+1. Unzip the new release zip (double-click it in Downloads).
+2. Open the new folder and the repository folder (`~/Documents/GitHub/NanocrystalShapes`) side by side.
+3. In the new folder select everything **except `docs`** (unless the new version changes the
+   pictures there), drag it into the repository folder and choose **Replace**. Never replace or
+   delete the repository folder itself; its hidden `.git` folder holds the history.
+4. GitHub Desktop lists the changes. Right-click any change you did not intend (for example your
+   own screenshots) › **Discard Changes**. Commit, then **Push origin**.
+5. On github.com: **Releases › Draft a new release**, type the new tag (for example `v2.2`),
+   choose **Create new tag on publish**, attach the zip and publish.
 
 ## Regenerating pictures
 

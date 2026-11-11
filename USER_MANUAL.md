@@ -1,4 +1,4 @@
-# Nanocrystal Shapes 2.1 – User Manual
+# Nanocrystal Shapes 2.2 – User Manual
 
 
 ---
