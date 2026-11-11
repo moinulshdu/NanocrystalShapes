@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Builds
+build/
+dist/
+*.spec
+
+# Editors and systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Images saved while testing (keep the ones in docs/ and the icon)
+/*.png
+/*.jpg
+/*.tif
+/*.tiff
+/*.pdf
+
+# Release downloads are attached to GitHub Releases, not committed
+*.zip

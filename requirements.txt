@@ -1,0 +1,4 @@
+# Required
+Pillow>=8.0
+# Optional: faster saving with a transparent background
+numpy
